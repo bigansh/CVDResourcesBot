@@ -8,7 +8,7 @@ const twitter = twit
 
 dotenv.config()
 
-const keyWords = ['@CVDResourcesBot', 'resource', 'verified', '#verified', 'available']
+const keyWords = ['@CVDResourcesBot', 'resource', 'verified', '#verified']
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
 
