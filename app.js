@@ -14,11 +14,14 @@ const keyWords = [
     'oxygen available',
     'remdesivir available',
     '-needed -require -urgent',
-    'beds -needed -require -urgent',
-    'oxygen -needed -require -urgent',
-    'ventilator -needed -require -urgent',
-    'remdesivir -needed -require -urgent',
-    'resource verified -needed -require -urgent'
+    'beds -needed -require -urgent -need',
+    'oxygen -needed -require -urgent -need',
+    'ventilator -needed -require -urgent -need',
+    'remdesivir -needed -require -urgent -need',
+    'oxygen verified',
+    'beds verified',
+    'ventilator verified',
+    'resource verified -needed -require -urgent -need'
 ]
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
