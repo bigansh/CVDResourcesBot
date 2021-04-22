@@ -10,21 +10,13 @@ dotenv.config()
 
 const keyWords = [
 	'@CVDResourcesBot',
-	'beds verified -help',
-	'beds available -help',
-	'oxygen verified -help',
-	'oxygen available -help',
-	'ventilator verified -help',
-	'remdesivir available -help',
-	'-needed -require -urgent -help',
-	'beds -needed -require -urgent -need -help',
-	'oxygen -needed -require -urgent -need -help',
-	'remdesivir -needed -require -urgent -need -help',
-	'ventilator -needed -require -urgent -need -help',
-	'resource verified -needed -require -urgent -need -help',
+	'beds verified',
+	'oxygen verified',
+	'ventilator verified',
+	'resource verified',
 ]
 
-var stream = twitter.stream('statuses/filter', { track: keyWords })
+const stream = twitter.stream('statuses/filter', { track: keyWords })
 
 stream.on('tweet', (tweet) => {
 	if (tweet.quoted_status_id_str) {
@@ -44,7 +36,8 @@ stream.on('tweet', (tweet) => {
 			.catch((error) => {
 				console.log(error)
 			})
-	} else {
+	}
+	if (tweet.id_str) {
 		twitter
 			.post('statuses/retweet/:id', {
 				id: tweet.id_str,
@@ -57,6 +50,10 @@ stream.on('tweet', (tweet) => {
 
 stream.on('error', (error) => {
 	console.log(error)
+})
+
+stream.on('limit', (limit) => {
+	console.log(limit)
 })
 
 app.listen(process.env.PORT, () => {
