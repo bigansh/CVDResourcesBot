@@ -8,7 +8,16 @@ const twitter = twit
 
 dotenv.config()
 
-const keyWords = ['@CVDResourcesBot', 'resource verified', 'beds available', 'oxygen available', 'remdesivir available']
+const keyWords = [
+    '@CVDResourcesBot',
+    'resource verified',
+    'beds available',
+    'oxygen available',
+    'remdesivir available',
+    '-need',
+    '-require',
+    '-urgent'
+]
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
 
@@ -26,7 +35,6 @@ stream.on('tweet', async (tweet) => {
     } catch {
         console.log(tweet)
     }
-    
 })
 
 app.listen(process.env.PORT, () => {
