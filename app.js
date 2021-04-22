@@ -12,16 +12,21 @@ const keyWords = ['@CVDResourcesBot', 'resource verified', 'beds available', 'ox
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
 
-stream.on('tweet', (tweet) => {
-    if (tweet.quoted_status_id_str) {
-        twitter.post('statuses/retweet/:id', { id: tweet.quoted_status_id_str })
+stream.on('tweet', async (tweet) => {
+    try {
+        if (tweet.quoted_status_id_str) {
+            twitter.post('statuses/retweet/:id', { id: tweet.quoted_status_id_str })
+        }
+        if (tweet.in_reply_to_status_id_str) {
+            twitter.post('statuses/retweet/:id', { id: tweet.in_reply_to_status_id_str })
+        }
+        else {
+            twitter.post('statuses/retweet/:id', { id: tweet.id_str })
+        }
+    } catch {
+        console.log(tweet)
     }
-    if (tweet.in_reply_to_status_id_str) {
-        twitter.post('statuses/retweet/:id', { id: tweet.in_reply_to_status_id_str })
-    }
-    else {
-        twitter.post('statuses/retweet/:id', { id: tweet.id_str })
-    }
+    
 })
 
 app.listen(process.env.PORT, () => {
