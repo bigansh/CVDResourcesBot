@@ -8,7 +8,9 @@ const twitter = twit
 
 dotenv.config()
 
-var stream = twitter.stream('statuses/filter', { track: ['@CVDResourcesBot', 'verified resource'] })
+const keyWords = ['@CVDResourcesBot', 'resource', 'verified', '#verified']
+
+var stream = twitter.stream('statuses/filter', { track: keyWords })
 
 stream.on('tweet', (tweet) => {
     if (tweet.quoted_status_id_str) {
