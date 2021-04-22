@@ -10,13 +10,13 @@ dotenv.config()
 
 const keyWords = [
     '@CVDResourcesBot',
-    'resource verified',
+    'resource verified -need -require -urgent',
     'beds available',
     'oxygen available',
     'remdesivir available',
-    '-need',
-    '-require',
-    '-urgent'
+    'beds -need -require -urgent',
+    'oxygen -need -require -urgent',
+    'remdesivir -need -require -urgent',
 ]
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
