@@ -13,10 +13,12 @@ const keyWords = [
     'beds available',
     'oxygen available',
     'remdesivir available',
-    'beds -need -require -urgent',
-    'oxygen -need -require -urgent',
-    'remdesivir -need -require -urgent',
-    'resource verified -need -require -urgent'
+    '-needed -require -urgent',
+    'beds -needed -require -urgent',
+    'oxygen -needed -require -urgent',
+    'ventilator -needed -require -urgent',
+    'remdesivir -needed -require -urgent',
+    'resource verified -needed -require -urgent'
 ]
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
