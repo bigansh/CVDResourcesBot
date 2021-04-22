@@ -18,24 +18,6 @@ const keyWords = [
 const stream = twitter.stream('statuses/filter', { track: keyWords })
 
 stream.on('tweet', (tweet) => {
-	if (tweet.quoted_status_id_str) {
-		twitter
-			.post('statuses/retweet/:id', {
-				id: tweet.quoted_status_id_str,
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
-	if (tweet.in_reply_to_status_id_str) {
-		twitter
-			.post('statuses/retweet/:id', {
-				id: tweet.in_reply_to_status_id_str,
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
 	if (tweet.id_str) {
 		twitter
 			.post('statuses/retweet/:id', {
