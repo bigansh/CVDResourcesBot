@@ -9,7 +9,6 @@ const twitter = twit
 dotenv.config()
 
 const keyWords = [
-	'@CVDResourcesBot',
 	'beds available verified',
 	'oxygen available verified',
 	'ventilator available verified',
