@@ -10,18 +10,18 @@ dotenv.config()
 
 const keyWords = [
 	'@CVDResourcesBot',
-	'beds verified',
-	'beds available',
-	'oxygen verified',
-	'oxygen available',
-	'ventilator verified',
-	'remdesivir available',
-	'-needed -require -urgent',
-	'beds -needed -require -urgent -need',
-	'oxygen -needed -require -urgent -need',
-	'remdesivir -needed -require -urgent -need',
-	'ventilator -needed -require -urgent -need',
-	'resource verified -needed -require -urgent -need',
+	'beds verified -help',
+	'beds available -help',
+	'oxygen verified -help',
+	'oxygen available -help',
+	'ventilator verified -help',
+	'remdesivir available -help',
+	'-needed -require -urgent -help',
+	'beds -needed -require -urgent -need -help',
+	'oxygen -needed -require -urgent -need -help',
+	'remdesivir -needed -require -urgent -need -help',
+	'ventilator -needed -require -urgent -need -help',
+	'resource verified -needed -require -urgent -need -help',
 ]
 
 var stream = twitter.stream('statuses/filter', { track: keyWords })
