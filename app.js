@@ -1,12 +1,8 @@
-const express = require('express'),
-	app = express(),
-	dotenv = require('dotenv')
+require('dotenv').config()
 
 const twit = require('./connections/twitterConnect')
 
 const twitter = twit
-
-dotenv.config()
 
 const keyWords = [
 	'beds available verified',
@@ -35,8 +31,4 @@ stream.on('error', (error) => {
 
 stream.on('limit', (limit) => {
 	console.log(limit)
-})
-
-app.listen(process.env.PORT, () => {
-	console.log('connected')
 })
